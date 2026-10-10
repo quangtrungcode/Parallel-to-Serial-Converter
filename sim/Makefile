@@ -1,4 +1,3 @@
-
 #Define variables
 TESTNAME 	?=single_convert_test
 TB_NAME 	?=testbench
