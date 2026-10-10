@@ -1,0 +1,22 @@
+module parallel_to_serial(
+    input        clk,        // Clock input
+    input        rst_n,      // Active low reset
+    input        valid,      // Valid signal to load parallel data
+    input  [7:0] data_in,    // 8-bit parallel data input
+    output       TXD         // Serial data output (LSB first)
+);
+
+`protected
+
+    MTI!#U>l@qO!zE#xX@X,vkUh*7'=EoTpLe_5[6Kro[c[eX!T&luEkB,QQ#_CkZzYiIQ}1KU,BAt-
+    ,!<!n2}m[']s0mwK-kR;e\l>[{R!k6}T^p1BE+H}@]K7S{RuzC{=K]ww[7nQ$5wvJl{aK?Lc2\aO
+    gG\]K<^xv7w_~V}5oJjr$CJ@]O-_3G3G[po!]57l3nRn^2S&k{A7zRJVfm7Q3}3Uw#5?+lnwsV@I
+    [=Bml7V(#$n~*;UV~ou,k1mu2R5^&CT~}E>T;YnpT]5HuD\lAi_B-(l@U[Y+'Hfo+1kR+<^Kwn~+
+    [@CBsKnXr^I;sJsuD}l[!7e}\[O}1[,-U]H~BHyN;7{["Hw=UFBC#u^m],<On1}_2$y(Bo<7bFX1
+    BBK]#^$^J1'm]R]ZQ>|$*uErT@j=#Vr\@Gm7;nx[*?x~X}Bgw>>o]D={~]Y]*+!k,ip]<_?-+1pY
+    CX>?/^OD=hUpTG]\5uxSk\=},ET{ywTo]k1TV$U!5rb7;n^isEe{{nu[&1@z;TlCI^<H71[<Z$H~
+    x{$xv{[Y^^},ZuEJU5D52O>O[ek]]c{U>[j?Xsr1?]Yw=vs_7z
+`endprotected
+
+endmodule
+
