@@ -28,28 +28,34 @@ The verification environment follows a standard Layered Testbench architecture, 
 
 ## 📂 Directory Structure
 ```text
-├── rtl/
-│   └── parallel_to_serial.vp     # DUT source code (Protected/Encrypted IP)
-├── tb/
-│   ├── stimulus.sv               # Transaction generator
-│   ├── driver.sv                 # Drives stimulus to DUT
-│   ├── monitor.sv                # Captures DUT output
-│   ├── scoreboard.sv             # Data comparison
-│   ├── environment.sv            # Wraps components & mailboxes
-│   ├── testbench.sv              # Top module, instantiates DUT and Interfaces
-│   ├── converter_pkg.sv          # Package containing all testbench environment classes
-│   ├── dut_interface.sv          # Interface bridging the dynamic testbench and static DUT
-│   └── packet.sv                 # Transaction data class (defines randomized variables/payload)
-├── testcase/
-│   ├── test_pkg.sv               # Package containing all test scenarios
-│   ├── base_test.sv              # Base test class
-│   ├── single_convert_test.sv    # Single transaction scenario
-│   └── multi_convert_test.sv     # Multiple transaction scenario
-└── sim/
-    ├── Makefile                  # Automation script for compilation and simulation
-    ├── compile.f                 # Top-level compilation file list
-    ├── rtl.f                     # Compilation file list for RTL sources
-    └── tb.f                      # Compilation file list for testbench sources
+├── Design/
+│   └── rtl/
+│       └── parallel_to_serial.vp     # DUT source code (Protected/Encrypted IP)
+├── Verification/
+│   ├── sim/
+│   │   ├── Makefile                  # Automation script for compilation and simulation
+│   │   ├── compile.f                 # Top-level compilation file list
+│   │   ├── rtl.f                     # Compilation file list for RTL sources
+│   │   └── tb.f                      # Compilation file list for testbench sources
+│   ├── tb/
+│   │   ├── converter_pkg.sv          # Package containing all testbench environment classes
+│   │   ├── driver.sv                 # Drives stimulus to DUT
+│   │   ├── dut_interface.sv          # Interface bridging the dynamic testbench and static DUT
+│   │   ├── environment.sv            # Wraps components & mailboxes
+│   │   ├── monitor.sv                # Captures DUT output
+│   │   ├── packet.sv                 # Transaction data class (defines randomized variables/payload)
+│   │   ├── scoreboard.sv             # Data comparison
+│   │   ├── stimulus.sv               # Transaction generator
+│   │   └── testbench.sv              # Top module, instantiates DUT and Interfaces
+│   └── testcase/
+│       ├── base_test.sv              # Base test class
+│       ├── multi_convert_test.sv     # Multiple transaction scenario
+│       ├── single_convert_test.sv    # Single transaction scenario
+│       └── test_pkg.sv               # Package containing all test scenarios
+├── images/
+│   ├── dut.jpg                       # DUT Block Diagram image
+│   └── testbench.jpg                 # Testbench Architecture image
+└── README.md                         # Project documentation
 ```
 ## 🛠️ How to Run Simulation (Compile-Once-Run-Many Flow)
 This project utilizes an advanced Makefile flow combined with SystemVerilog `plusargs`. This allows compiling the entire testbench environment exactly once, and dynamically selecting different testcases during the runtime phase, significantly reducing simulation turnaround time.
@@ -58,7 +64,7 @@ This project utilizes an advanced Makefile flow combined with SystemVerilog `plu
 
 1. **Navigate to the simulation directory:**
    ```bash
-   cd sim
+   cd Verification/sim
    ```
 
 2. **Step 1: Compile the Design and Testbench (Do this only once)**
