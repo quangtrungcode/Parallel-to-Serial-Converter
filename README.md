@@ -5,12 +5,19 @@ This repository contains a robust, **OOP-based SystemVerilog Layered Testbench**
 
 ## ⚙️ Design Under Test (DUT)
 The DUT is an 8-bit Parallel-to-Serial converter for serial communication.
+
+![DUT Block Diagram](dut.jpg)
+
+* **Inputs:** `clk`, `rst_n` (active low), `valid`, `data_in[7:0]`
+* **Output:** `TXD` (Serial data out, LSB first)
 * **Inputs:** `clk`, `rst_n` (active low), `valid`, `data_in[7:0]`
 * **Output:** `TXD` (Serial data out, LSB first)
 * **Behavior:** When `valid` is triggered, the DUT captures the 8-bit `data_in` and shifts it out serially via the `TXD` pin on subsequent clock cycles.
 
 ## 🏗️ Testbench Architecture
 The verification environment follows a standard Layered Testbench architecture, separating the dynamic transaction level from the static physical signal level.
+
+![Testbench Architecture](testbench.jpg)
 
 * **Stimulus (Generator):** Generates random 8-bit data packets and sends them to the Driver (via `s2d_mb`) and Scoreboard (via `s2s_mb`).
 * **Driver:** Receives packets from the Stimulus and drives the physical signals (`valid`, `data_in`) to the DUT through a **Virtual Interface**.
